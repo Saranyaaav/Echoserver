@@ -67,12 +67,17 @@ print(f"Received {data!r}")
 
 ## OUTPUT:
 Run server first
+
 ┌──(sara㉿kali)-[~]
+
 └─$ python echoserver.py
 
 Then in another terminal run client
+
 ──(sara㉿kali)-[~]
+
 └─$ python echoclient.py
+
 Received b'Hello, world'
 
 ## RESULT:
