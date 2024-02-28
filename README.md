@@ -1,12 +1,11 @@
 # Echoserver
 Echo server and client using python socket
 
-# AIM:
+## AIM:
 
 To develop a simple webserver to serve html programming pages.
 
 ## DESIGN STEPS:
-
 ### Step 1:
 
 Design of echo server and client using python socket
@@ -20,82 +19,46 @@ Implementation using Python code
 Testing the server and client 
 
 ## PROGRAM:
-Server code
 
+### Server code
+### echo-server.py
 
-# echo-server.py
-
-
+```
 import socket
-
-
 HOST = "127.0.0.1"  # Standard loopback interface address (localhost)
-
 PORT = 65432  # Port to listen on (non-privileged ports are > 1023)
-
-
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-
     s.bind((HOST, PORT))
-    
     s.listen()
-    
     conn, addr = s.accept()
-    
     with conn:
-    
         print(f"Connected by {addr}")
-        
         while True:
-        
             data = conn.recv(1024)
-            
             if not data:
-            
                 break
-                
             conn.sendall(data)
+```
 
-Client Code:
-# echo-client.py
-
-
+### Client Code:
+### echo-client.py
+```
 import socket
-
-
 HOST = "127.0.0.1"  # The server's hostname or IP address
-
 PORT = 65432  # The port used by the server
-
-
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-
     s.connect((HOST, PORT))
-    
     s.sendall(b"Hello, world")
-    
     data = s.recv(1024)
-
-
 print(f"Received {data!r}")
-
+```
 
 ## OUTPUT:
-Run server first
+### Server
+![1](https://github.com/Saranyaaav/Echoserver/assets/144870813/9e4b2ef8-14cc-4c6c-9bb7-23df8ed2bc53)
+### Client
+![2](https://github.com/Saranyaaav/Echoserver/assets/144870813/f9693b31-b1b7-4251-a198-6ad743f41d8e)
 
-┌──(sara㉿kali)-[~]
-
-└─$ python echoserver.py
-
-
-
-Then in another terminal run client
-
-──(sara㉿kali)-[~]
-
-└─$ python echoclient.py
-
-Received b'Hello, world'
 
 ## RESULT:
 The program is executed successfully
